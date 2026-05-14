@@ -1,3 +1,6 @@
+<img width="319" height="273" alt="ScreenRecording2026-05-14at4 46 08PM-ezgif com-crop" src="https://github.com/user-attachments/assets/406f816b-759a-42ea-a924-d3f0c5e5ecdd" />
+
+
 # Royal Bank of Flatiron
 
 A React banking transaction tracker application built with React Hooks and tested with Vitest + React Testing Library.
