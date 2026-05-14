@@ -1,7 +1,9 @@
 import React from "react";
 
 function AddTransactionForm({ postTransaction }) {
-  function submitForm(e) {
+
+ // Prevent page refresh and create transaction object
+function submitForm(e) {
     e.preventDefault();
 
     const form = e.target;

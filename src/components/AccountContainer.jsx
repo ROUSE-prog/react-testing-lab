@@ -8,13 +8,14 @@ function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
   const [search, setSearch] = useState("");
 
+  // Fetch transactions from backend when app loads
   useEffect(() => {
     fetch("http://localhost:6001/transactions")
       .then((r) => r.json())
       .then((data) => setTransactions(data));
   }, []);
-
-  function postTransaction(newTransaction) {
+// Sends a POST request and updates state with new transaction
+function postTransaction(newTransaction) {
     fetch("http://localhost:6001/transactions", {
       method: "POST",
       headers: {
@@ -26,7 +27,8 @@ function AccountContainer() {
       .then((data) => setTransactions([...transactions, data]));
   }
 
-  function onSort(sortBy) {
+  // Sort transactions alphabetically by selected field
+function onSort(sortBy) {
     const sortedTransactions = [...transactions].sort((a, b) =>
       a[sortBy].localeCompare(b[sortBy])
     );
@@ -34,7 +36,8 @@ function AccountContainer() {
     setTransactions(sortedTransactions);
   }
 
-  const filteredTransactions = transactions.filter((transaction) =>
+  // Filter transactions based on search input
+const filteredTransactions = transactions.filter((transaction) =>
     transaction.description
       .toLowerCase()
       .includes(search.toLowerCase())
